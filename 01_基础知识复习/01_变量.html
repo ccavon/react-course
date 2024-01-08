@@ -1,0 +1,112 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-08 12:32:49
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-08 14:35:44
+ * @FilePath: /react-course/01_基础知识复习/01_变量.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量</title>
+  <script>
+    /*
+        var
+          - 没有块级作用域
+            - 全局作用域
+            - 函数作用域
+        let
+          - 有块级作用域：可以隔离局部作用域和全局作用域
+        const
+          - 和let类似，具有块级作用域，但是它只能赋值一次
+          - 使用场景：
+            1. 对于一些常量可以使用const声明
+              比如：const PI = 3.14，一般会使用大写命名，说明是常量固定值，不能进行修改
+            2. 对于一些对象（函数），也可以使用const声明，这样可以避免对象（函数）被意外修改
+
+    */
+
+    // 在老版本中：
+    // var a = 10; // 全局作用域
+    // function fn() {
+    //   var a = 10; // 函数作用域
+    // }
+
+
+    // 块级
+    {
+      var a = 10;
+      let b = 10;
+    }
+
+    // console.log(a); // 10
+    // console.log(b); // Uncaught ReferenceError: b is not defined
+
+    for (var i = 0; i < 5; i++) {
+      console.log("for循环内部var-->", i);
+    }
+    console.log("for循环外部var-->", i); // 5
+
+    for (let j = 0; j < 5; j++) {
+      console.log("for循环内部let-->", j);
+    }
+    // console.log("for循环外部let-->", j); // Uncaught ReferenceError: j is not defined
+
+
+    // if (true) {
+    //   var b = 10;
+    // }
+    // console.log(b); // 10
+
+    // if (false) {
+    //   var b = 10;
+    // }
+    // console.log(b); // undefined
+
+    if (false) {
+      // var b = 10;
+    }
+    // console.log(b); // Uncaught ReferenceError: b is not defined
+
+    // 可以用立即执行函数来解决 var 没有块级作用域的问题，但是这样会显得很麻烦
+    (function() {
+      if (false) {
+        var b = 10;
+      }
+    })();
+    // console.log(b); // Uncaught ReferenceError: b is not defined
+
+
+    // 因此用let既能解决块级作用域的问题，也能很方便的使用
+    if (false) {
+      let b = 10;
+    }
+    // console.log(b); // Uncaught ReferenceError: b is not defined
+
+
+
+    const c = 44;
+    // c = "hello";
+    // console.log(c); // Uncaught TypeError: Assignment to constant variable.
+
+    const PI = 3.14; // 自然数
+
+    const obj = {
+      name: '孙悟空'
+    }
+    // obj = {}
+    // console.log(obj.name); // Uncaught TypeError: Assignment to constant variable.
+    obj.age = 18;
+    console.log(obj.name);
+    console.log(obj.age);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
