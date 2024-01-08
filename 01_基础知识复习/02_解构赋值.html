@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-08 16:17:27
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-08 20:32:31
+ * @LastEditTime: 2024-01-08 21:09:15
  * @FilePath: /react-course/01_基础知识复习/02_解构赋值.html
 -->
 <!DOCTYPE html>
@@ -24,6 +24,10 @@
 
     [a, b] = arr;
     console.log(a, b); // 孙悟空 猪八戒
+
+    [a = 5, b = 7] = [1]; // 赋值是可以指定默认值
+    console.log(11111, a); // 1
+    console.log(22222, b); // 7
 
     // 直接声明
     const [c, d] = arr;
@@ -86,6 +90,8 @@
     // 交换数组中两个元素的位置
     [arr2[1], arr2[2]] = [arr2[2], arr2[1]];
     console.log(arr2); // [1, 2, 3]
+
+
 
   </script>
 </head>
