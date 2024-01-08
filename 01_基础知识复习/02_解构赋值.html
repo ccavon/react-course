@@ -1,0 +1,97 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-08 16:17:27
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-08 20:32:31
+ * @FilePath: /react-course/01_基础知识复习/02_解构赋值.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值</title>
+  <script>
+
+    // 数组的解构
+    let a, b;
+    let arr = ["孙悟空", "猪八戒"];
+
+    // a = arr[0];
+    // b = arr[1];
+    // console.log(a, b); // 孙悟空 猪八戒
+
+    [a, b] = arr;
+    console.log(a, b); // 孙悟空 猪八戒
+
+    // 直接声明
+    const [c, d] = arr;
+    console.log(c, d); // 孙悟空 猪八戒
+
+
+    function fn() {
+      return ["沙和尚", "唐僧"];
+    }
+
+    const [e, f] = fn();
+    console.log(e, f); // 沙和尚 唐僧
+
+
+    arr = ["孙悟空", "猪八戒", "沙和尚", "唐僧"];
+    // const [a1, a2] = arr;
+    // console.log(a1, a2); // 孙悟空 猪八戒
+    // const [a1, a2, , a4] = arr; // 用逗号表示跳过元素
+    // console.log(a1, a2, a4); // 孙悟空 猪八戒 唐僧
+    // ...变量，会接收后边所有的元素
+    const [a1, a2, ...a3] = arr; // 剩余参数都给到a3，但是必须是最后一个参数，否则报错
+    console.log(a1, a2, a3); // 孙悟空 猪八戒  ['沙和尚', '唐僧']
+    console.log("a1=" + a1, "a2=" + a2, "a3=" + a3); // a1=孙悟空 a2=猪八戒 a3=沙和尚,唐僧
+
+    // 对象的解构
+    const obj = {
+      name: '孙悟空',
+      age: 18,
+      gender: '男'
+    };
+    let b1, b2, b3;
+    // b1 = obj.name;
+    // b2 = obj.age;
+    // b3 = obj.gender;
+    // console.log(b1, b2, b3); // 孙悟空 18 男
+    // 将name赋值给b1，age赋值给b2，gender赋值给b3
+    ({ name: b1, age: b2, gender: b3 } = obj); // 不建议使用，降低可读性
+    console.log(b1, b2, b3); // 孙悟空 18 男
+
+    // 如果变量名和属性名一致，则可以省略只写一个
+    // const { name: name, age: age, gender: gender } = obj;
+    const { name, age, gender } = obj;
+    console.log(name, age, gender); // 孙悟空 18 男
+
+
+    // 利用数组的解构来交换两个变量的位置
+    let c1 = 10, c2 = 20;
+
+    // let temp = c1;
+    // c1 = c2;
+    // c2 = temp;
+
+    // 交换变量c1和c2的位置
+    [c1, c2] = [c2, c1];
+
+    console.log('c1=', c1); // c1= 20
+    console.log('c2=', c2); // c2= 10
+
+    let arr2 = [1, 3, 2];
+    // 交换数组中两个元素的位置
+    [arr2[1], arr2[2]] = [arr2[2], arr2[1]];
+    console.log(arr2); // [1, 2, 3]
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
