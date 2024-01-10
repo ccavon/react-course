@@ -1,0 +1,74 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-10 15:28:05
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-10 21:54:21
+ * @FilePath: /react-course/01_基础知识复习/03_展开.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>展开</title>
+  <script>
+
+    /*
+        可以通过 ... 展开一个数组
+     */
+
+    function fn(a, b, c) {
+      return a + b + c;
+    }
+
+    /* 展开数组 */
+    const arr = [1, 2, 3];
+
+    // 计算数组中三个数字的和
+    let result = fn(arr[0], arr[1], arr[2]);
+    console.log("result =", result); // 6
+
+    let result2 = fn(...arr);
+    console.log("result2 =", result2); // 6
+
+    let str = fn(...'abc');
+    console.log('str =', str); // abc
+
+    const arr2 = [...arr]; // 相当于将arr浅复制给arr2
+    console.log('arr2 =', arr2); // [1, 2, 3]
+
+    const arr3 = [...arr, 4, 5, 6];
+    console.log('arr3 =', arr3); // [1, 2, 3, 4, 5, 6]
+
+    const arr4 = [7, 8, 9, ...arr, 4, 5, 6];
+    console.log('arr4 =', arr4); // [7, 8, 9, 1, 2, 3, 4, 5, 6]
+
+    /* 展开对象 */
+    const obj = {
+      name: '孙悟空',
+      age: 18,
+      gender: "男"
+    };
+
+    const obj2 = { ...obj }; // 将obj在新的对象中展开，相当于浅复制
+    console.log("obj2:", obj2); // {name: '孙悟空', age: 18, gender: '男'}
+
+    const obj3 = { ...obj, address: "花果山" };
+    console.log("obj3:", obj3); // {name: '孙悟空', age: 18, gender: '男', address: '花果山'}
+
+    // 根据name 的位置不同，显示的名字不同，也就是在后面的显示谁
+    const obj4 = { ...obj, address: "花果山", name: "猪八戒" };
+    console.log("obj4:", obj4); // {name: '猪八戒', age: 18, gender: '男', address: '花果山'}
+    const obj5 = { address: "花果山", name: "猪八戒", ...obj };
+    console.log("obj5:", obj5); // {address: '花果山', name: '孙悟空', age: 18, gender: '男'}
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
