@@ -1,0 +1,75 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-11 14:55:53
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-11 22:09:26
+ * @FilePath: /react-course/01_基础知识复习/04_箭头函数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+  <script>
+    /*
+      箭头函数：
+        - 只有一个参数的函数
+            参数 => 返回值
+        - 如果没有参数或多个参数
+            () => 返回值
+            (a, b, c) => 返回值
+        - 箭头后边的值就是函数的返回值
+          - 返回值必须是一个表达式（有值的语句）
+          - 如果返回值是对象，必须加（）
+        - 如果需要在箭头函数中定义逻辑，可以直接在箭头后跟一个代码块，代码块中语法和普通函数没有区别
+     */
+
+    const fn = function (a) {
+      return 'hello';
+    }
+
+    // 只有一个参数的函数
+    const fn2 = a => a + 'hello';
+    console.log(fn2(123)); // 123hello
+
+
+    // 有两个参数的函数
+    const fn3 = (a, b) => a + 'hello';
+    console.log(fn3(456)); // 456hello
+
+
+    // 返回值
+    const sum = (a, b) => a + b;
+    let result = sum(123, 456);
+    console.log(result); // 579
+
+    // 有值的语句
+    const sum2 = (a, b) => ({ name: '孙悟空' }); // 一定要加括号，不然会被当成代码块
+    const sum3 = (a, b) => typeof a;
+    const sum4 = (a, b) => console.log(a); // a没有值默认返回undefined
+
+
+    // 在箭头函数中定义逻辑
+    const fn4 = (a, b) => {
+      if (a === 10) {
+        a += 5;
+      } else if (a === 20) {
+        a += 5;
+      }
+      return a + b;
+    }
+
+    result = fn4(10, 20);
+    console.log(result);
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
