@@ -1,0 +1,95 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-12 16:24:04
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-13 15:07:09
+ * @FilePath: /react-course/01_基础知识复习/05_箭头函数特点.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数特点</title>
+  <script>
+    /*
+      1. 箭头函数中没有arguments
+      2. 箭头函数中没有this
+          - 它的this总是外层作用域的this
+     */
+
+    // 箭头函数中没有arguments
+    function fn() {
+      // arguments用来保存函数的实参
+      console.log(arguments.length);
+    }
+    fn(); // 0
+    fn('hello'); // 1
+    fn('hello', 11); // 2
+    fn('hello', 11, 22); // 3
+
+    const fn2 = () => {
+      console.log(arguments.length); // Uncaught ReferenceError: arguments is not defined
+    }
+    // fn2();
+
+
+    // 箭头函数中没有this
+    const fn3 = () => {
+      console.log(this); // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+    }
+    fn3();
+
+    const obj = {
+      // 总是指向Window，不会指向this
+      hello: () => {
+        console.log(this); // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+      }
+    };
+    obj.hello();
+
+    const obj2 = {
+      hello: function () {
+        console.log(this); // {hello: ƒ}
+      }
+    };
+    obj2.hello();
+
+
+    const obj3 = {
+      hello: function () {
+        // 箭头函数的this是由他的外层函数决定的
+        const test = () => {
+          // 此时的this是由他外层函数决定的
+          console.log('test箭头函数里面打印this：', this); // {hello: ƒ}
+        }
+        test();
+      }
+    };
+    obj3.hello();
+
+
+    // 箭头函数不能作为构造函数调用
+    const Test = () => { };
+    // new Test(); // Uncaught TypeError: Test is not a constructor
+
+
+    // 箭头函数中的this无法通过call()、apply()、bind()指定函数this
+    const fn4 = () => {
+      // this指向Window
+      console.log('fn4函数调用了吗？', this); // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+    }
+    fn4.call();
+    fn4.apply();
+    fn4.bind(); // （这样调没有反应）
+    let newFn4 = fn4.bind();
+    newFn4();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
