@@ -1,0 +1,50 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-14 15:44:26
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-14 21:46:59
+ * @FilePath: /react-course/01_基础知识复习/06_模块化/模块化.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>模块化</title>
+  <!--
+    默认情况下，script标签中不能使用import语句
+      如果想让其支持模块化，必须设置script的type属性为module
+
+   -->
+  <!-- <script>
+    import a from './m1.js'; // Uncaught SyntaxError: Cannot use import statement outside a module
+  </script> -->
+  <script type="module">
+    // 导入m1模块中的默认模块
+    // import a from './m1.js';
+    // console.log(a); // m1模块中的变量a
+
+
+    // 导入m1模块中的b和c
+    // import { b, c } from './m1.js';
+    // console.log(b, c); // 20 30
+    // import { b as hello, c } from './m1.js';
+    // console.log(hello, c); // 20 30
+
+    // import { b as hello, c, obj, fn } from './m1.js';
+    // console.log(hello, c, obj); // 20 30
+    // fn();
+
+    // 既导入默认的也导入命名的
+    import a, { b, c, obj, fn } from './m1.js';
+    console.log(a, b, c, obj);
+    fn();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
