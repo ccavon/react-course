@@ -1,0 +1,100 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-15 18:26:10
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-15 21:35:41
+ * @FilePath: /react-course/01_基础知识复习/08_类的this.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类的this</title>
+  <script>
+    // 'use strict'
+
+    /*
+      类中的所有代码都会在严格模式下执行
+        严格模式下，其中一个特点就是，函数的this不再是window，而是undefined
+
+      注意：
+        在类中方法的this不是固定的
+          以方法形式调用时，this就是当前的实例
+          以函数形式调用时，this就是undefined
+        在开发时，在有些场景下，我们希望方法中的this是固定的，不会因调用方式不同而改变
+          如果遇到上述需求，可以使用箭头函数来定义类中的方法
+          如果类中的方法是以箭头函数定义的，则方法中的this恒为当前实例，不会改变
+     */
+
+    class MyClass {
+      fn() {
+        console.log('-->', this);
+      }
+    }
+
+    const mc = new MyClass();
+    console.log(mc);
+
+    // 以方法的形式执行
+    mc.fn(); // MyClass
+
+    // 以函数的方式执行
+    const test = mc.fn;
+    test(); // undefined
+
+
+    const fn2 = function () {
+      console.log(this);
+    }
+    // 在严格模式下
+    // fn2();
+    // 不在严格模式下
+    fn2(); // Window {window: Window, self: Window, document: #document, name: '', location: Location, …}
+
+    console.log('------------分割线------------');
+
+    class MyClass2 {
+      constructor() {
+        // this.fn = this.fn.bind(this); // 将fn方法的this绑定为当前实例
+      }
+      fn() {
+        console.log('-->', this);
+      }
+    }
+    const mc2 = new MyClass2();
+    console.log(mc2); // MyClass2 {fn: ƒ}
+
+    // 以方法的形式执行
+    mc2.fn(); // MyClass2 {fn: ƒ}
+
+    // 以函数的方式执行
+    const test2 = mc2.fn;
+    test2(); // MyClass2 {fn: ƒ}
+
+
+    console.log('------------分割线------------');
+
+    class MyClass3 {
+      fn = () => {
+        console.log('-->', this);
+      }
+    }
+    const mc3 = new MyClass3();
+    console.log(mc3); // MyClass3 {fn: ƒ}
+
+    // 以方法的形式执行
+    mc3.fn(); // MyClass3 {fn: ƒ}
+
+    // 以函数的方式执行
+    const test3 = mc3.fn;
+    test3(); // MyClass3 {fn: ƒ}
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

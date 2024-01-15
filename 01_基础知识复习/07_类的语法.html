@@ -2,8 +2,8 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-15 17:24:08
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-15 18:05:34
- * @FilePath: /react-course/01_基础知识复习/07_类.html
+ * @LastEditTime: 2024-01-15 18:30:18
+ * @FilePath: /react-course/01_基础知识复习/07_类的语法.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>类</title>
+  <title>类的语法</title>
   <script>
     /*
       类
@@ -30,8 +30,8 @@
         console.log('我会跑～');
       }
     }
-    const per1 = new Person1('孙悟空', 18);
-    const per2 = new Person1('猪八戒', 28);
+    const per1 = new Person1();
+    const per2 = new Person1();
     console.log(per1);
     console.log(per2);
     console.log(per1 === per2); // false
@@ -63,7 +63,7 @@
     class Person3 {
       // 构造函数
       constructor(name, age) { // 当我们通过new创建对象时，实际上就是在调用类的构造函数
-        // 将参数赋值给对象中的属性
+        // 在构造函数中定义属性，并且将参数赋值给对象中的属性
         this.name = name; // 在构造函数中，可以通过this来引用当前的对象
         this.age = age;
       }
