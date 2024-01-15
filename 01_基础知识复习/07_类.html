@@ -1,0 +1,87 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-15 17:24:08
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-15 18:05:34
+ * @FilePath: /react-course/01_基础知识复习/07_类.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类</title>
+  <script>
+    /*
+      类
+        - 类是对象的模板
+        - 类决定了一个对象中有哪些属性和方法
+        - 使用class关键字来定义一个类
+
+     */
+    class Person1 {
+      // 可以直接在类中定义一个属性
+      name = '孙悟空';
+      age = 18;
+      gander = '男';
+      // 定义实例方法
+      run() {
+        console.log('我会跑～');
+      }
+    }
+    const per1 = new Person1('孙悟空', 18);
+    const per2 = new Person1('猪八戒', 28);
+    console.log(per1);
+    console.log(per2);
+    console.log(per1 === per2); // false
+    per1.run();
+
+
+    class Person2 {
+      // 构造函数
+      // constructor() { // 当我们通过new创建对象时，实际上就是在调用类的构造函数
+      //   console.log('我执行了～');
+      // }
+
+      constructor(...args) { // 当我们通过new创建对象时，实际上就是在调用类的构造函数
+        console.log('我执行了～', args);
+      }
+
+      // 定义实例方法
+      run() {
+        console.log('我会跑～');
+      }
+    }
+    const per3 = new Person2('孙悟空', 18);
+    const per4 = new Person2('猪八戒', 28);
+    console.log(per3);
+    console.log(per4);
+    per3.run();
+
+
+    class Person3 {
+      // 构造函数
+      constructor(name, age) { // 当我们通过new创建对象时，实际上就是在调用类的构造函数
+        // 将参数赋值给对象中的属性
+        this.name = name; // 在构造函数中，可以通过this来引用当前的对象
+        this.age = age;
+      }
+
+      // 定义实例方法
+      run() {
+        console.log('我会跑～');
+      }
+    }
+    const per5 = new Person3('孙悟空', 18);
+    const per6 = new Person3('猪八戒', 28);
+    console.log('Person3: ', per5, per6);
+    per5.run();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
