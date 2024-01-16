@@ -1,0 +1,96 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-15 21:39:34
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-16 17:02:10
+ * @FilePath: /react-course/01_基础知识复习/09_类的继承.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类的继承</title>
+  <script>
+
+    // 将多个类中的重复代码提取出来
+    class Animal {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      sayHello = () => {
+        console.log(`动物在叫～`);
+      }
+    }
+
+    // class Dog {
+    //   // constructor(name, age) {
+    //   //   this.name = name;
+    //   //   this.age = age;
+    //   // }
+
+    //   // sayHello = () => {
+    //   //   console.log('旺旺旺～');
+    //   // }
+    // }
+
+    // class Snake {
+    //   constructor(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   sayHello = () => {
+    //     console.log('嘶嘶嘶～');
+    //   }
+    // }
+
+    // 通过继承可以使得类中拥有其他类中的属性和方法
+    // 特点：使用extends来继承一个类，继承后就相当于将该类的代码复制到了当前类中
+    // 当使用继承后，被继承到类就称为父类，继承父类的类称为子类
+    class Dog extends Animal {
+      // 子类继承父类后，将获得父类中所有的属性和方法，也可以创建同名的属性或方法来对父类进行重写
+      sayHello = () => {
+        console.log('旺旺旺～');
+      }
+    }
+    const dog = new Dog('旺财', 5);
+    console.log(dog.name, dog.age); // 旺财 5
+    // 调用自身重写的方法
+    dog.sayHello(); // 旺旺旺～
+
+
+    class Snake extends Animal { }
+    const snake = new Snake('哧哧', 2);
+    console.log(snake.name, snake.age); // 哧哧 2
+    // 调用父类的公共方法
+    snake.sayHello(); // 动物在叫～
+
+
+    class Cat extends Animal {
+      // 当在子类中重写父类构造函数时，必须在子类构造函数中第一时间调用父类构造函数，否则会报错
+      // constructor() { } // Uncaught ReferenceError ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+      constructor(name, age, len) {
+        // super(); // 调用父类构造函数（如果没有加name, age，打印name，age时都为undefined）
+        super(name, age); // 调用父类构造函数
+        this.len = len;
+      }
+    }
+    const cat = new Cat('胖橘', 3, '30cm');
+    console.log(cat.name, cat.age, cat.len); // 胖橘 3 30cm
+
+
+    class Test { }
+    const test = new Test('测试', 0);
+    console.log(test.name, test.age); // undefined undefined
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

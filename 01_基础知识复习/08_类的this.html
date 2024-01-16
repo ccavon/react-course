@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-15 18:26:10
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-15 21:35:41
+ * @LastEditTime: 2024-01-16 14:41:42
  * @FilePath: /react-course/01_基础知识复习/08_类的this.html
 -->
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>类的this</title>
   <script>
-    // 'use strict'
+    // 'use strict';
 
     /*
       类中的所有代码都会在严格模式下执行
@@ -46,10 +46,10 @@
 
 
     const fn2 = function () {
-      console.log(this);
+      console.log('fn2: ', this);
     }
     // 在严格模式下
-    // fn2();
+    // fn2(); // undefined
     // 不在严格模式下
     fn2(); // Window {window: Window, self: Window, document: #document, name: '', location: Location, …}
 
@@ -57,7 +57,7 @@
 
     class MyClass2 {
       constructor() {
-        // this.fn = this.fn.bind(this); // 将fn方法的this绑定为当前实例
+        this.fn = this.fn.bind(this); // 将fn方法的this绑定为当前实例
       }
       fn() {
         console.log('-->', this);
