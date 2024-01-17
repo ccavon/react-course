@@ -1,0 +1,45 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-17 14:44:52
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-17 18:30:02
+ * @FilePath: /react-course/01_基础知识复习/10_类的静态属性和方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类的静态属性和方法</title>
+  <script>
+    class MyClass {
+      name = '胖橘';
+      fn = () => {
+        console.log('函数');
+      }
+    }
+
+    const mc = new MyClass();
+    console.log(mc.name);
+    mc.fn();
+
+    // 直接通过类调用的属性和方法被称为静态属性和静态方法
+    class MyClass2 {
+      // 使用static开头的属性是静态属性，方法是静态方法
+      static name = '胖橘';
+      static fn = () => {
+        // 注意：静态方法this不是实例对象而是当前的类的对象
+        console.log(this);
+      }
+    }
+    console.log(MyClass2.name);
+    MyClass2.fn();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
