@@ -1,0 +1,109 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-19 11:54:42
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-19 12:58:22
+ * @FilePath: /react-course/01_基础知识复习/11_数组的方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组的方法</title>
+  <script>
+    /*
+      map()
+        - 可以根据原有数组返回一个新数组
+        - 需要一个回调函数作为参数，回调函数的返回值会成为新数组中的元素
+        - 回调函数中有三个参数：
+            第一个参数：当前元素
+            第二个参数：当前元素的索引
+            第三个参数：当前数组
+
+      filter()
+        - 可以从一个数组中获得符合条件的元素
+        - 会根据回调函数的结果来决定是否保留元素，true保留，false不保留
+
+      find()
+        - 可以从一个数组中获得符合条件的第一个元素
+
+      reduce()
+        - 可以用来合并数组中的元素
+        - 需要两个参数：
+            回调函数（指定运算规则）
+              四个参数：
+                prev 上一次运算结果
+                curr 当前值
+                index 当前索引
+                arr 当前数组
+            初始值
+              - 用来指定第一次运算时prev，如果不指定则直接从第二个元素开始计算
+
+     */
+    // 基本使用
+    const arr = [1, 2, 3, 4, 5];
+    let result = arr.map(() => 20);
+    console.log(result); // [20, 20, 20, 20, 20]
+
+    result = arr.map((item) => {
+      return item + 2;
+    });
+    console.log(result); // [3, 4, 5, 6, 7]
+
+    result = arr.map((item, index, array) => {
+      return `${item + 2} ——> ${index}`;
+    });
+    console.log(result); // ['3 ——> 0', '4 ——> 1', '5 ——> 2', '6 ——> 3', '7 ——> 4']
+
+    // 使用场景
+    const arr2 = ['孙悟空', '猪八戒', '沙和尚']
+    result = arr2.map((item, index) => {
+      return `<li id="${index}">${item}</li>`;
+    });
+    console.log(result); // ['<li id="0">孙悟空</li>', '<li id="1">猪八戒</li>', '<li id="2">沙和尚</li>']
+
+
+    result = arr.filter(() => true);
+    console.log(result); // [1, 2, 3, 4, 5]
+
+    result = arr.filter(() => false);
+    console.log(result); // []
+
+    result = arr.filter((item) => item % 2 === 0);
+    console.log(result); // [2, 4]
+
+
+    result = arr.find((item) => item % 2 === 0);
+    console.log(result); // 2
+
+    result = arr.some((item) => item % 2 === 0);
+    console.log(result); // true
+
+
+    /**
+     * @description: reduce()
+     * @param {*} prev 上一个元素
+     * @param {*} curr 当前元素
+     * @return {*}
+     */
+    result = arr.reduce((prev, curr) => {
+      return prev * curr;
+    });
+    console.log(result);
+
+    // 0表示初始值，从0开始相加
+    result = arr.reduce((prev, curr) => {
+      console.log(prev, curr); // （第一个数为0）
+      return prev + curr;
+    }, 0);
+    console.log(result);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
