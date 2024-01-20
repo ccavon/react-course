@@ -1,0 +1,76 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-20 18:44:35
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-20 20:31:15
+ * @FilePath: /react-course/02_HelloReact/01_HelloWorld.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelloWorld</title>
+  <!-- 引入react的核心库 -->
+  <script src="./script/react.development.js"></script>
+  <!-- 引入react的dom库 -->
+  <script src="./script/react-dom.development.js"></script>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script>
+    /*
+      为什么将 react.development.js 单独提出来，是因为react.development.js可以配合其他框架或js使用
+      react.development.js 和 react-dom.development.js 配和使用，用于 Web 项目
+      react.development.js 和 react-native 配合使用，用于原生应用
+
+      React 就是用来代替DOM的
+     */
+
+
+    /* 通过DOM向页面中添加一个div */
+    /*
+        // 创建一个div
+        const div = document.createElement("div"); // 创建一个dom元素
+        console.log(div); // <div></div>
+        // 向div中设置内容
+        div.innerHTML = '我是一个div';
+        // 获取root
+        const root_dom = document.getElementById("root");
+        // 将div添加到页面中
+        root_dom.appendChild(div);
+     */
+
+
+    /* 通过React向页面中添加一个div
+
+      React.createElement()
+        - 用来创建一个react元素
+        - 参数
+          1. 元素名（组建名）
+          2. 元素中的属性
+          3. 元素的子元素（内容）
+
+      ReactDOM.createRoot()
+        - 用来创建react根元素，需要一个 DOM 元素作为参数
+    */
+
+    // const div = React.createElement("div"); // 创建一个react元素
+    const div = React.createElement("div", {}, '我是react创建的div'); // 创建一个react元素
+    console.log(div); // {$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …}
+
+    // 获取根元素对应的React元素
+    const root_react = ReactDOM.createRoot(document.getElementById("root"));
+    console.log(root_react);
+
+    // 将div渲染到根元素中
+    root_react.render(div);
+
+  </script>
+</body>
+
+</html>

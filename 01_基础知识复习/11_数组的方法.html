@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-19 11:54:42
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-19 12:58:22
+ * @LastEditTime: 2024-01-20 14:21:30
  * @FilePath: /react-course/01_基础知识复习/11_数组的方法.html
 -->
 <!DOCTYPE html>
@@ -78,6 +78,10 @@
     result = arr.find((item) => item % 2 === 0);
     console.log(result); // 2
 
+    result = arr.find((item) => item % 6 === 0);
+    console.log(result); // undefined
+
+
     result = arr.some((item) => item % 2 === 0);
     console.log(result); // true
 
@@ -91,14 +95,14 @@
     result = arr.reduce((prev, curr) => {
       return prev * curr;
     });
-    console.log(result);
+    console.log(result); // 120
 
     // 0表示初始值，从0开始相加
     result = arr.reduce((prev, curr) => {
       console.log(prev, curr); // （第一个数为0）
       return prev + curr;
     }, 0);
-    console.log(result);
+    console.log(result); // 15
   </script>
 </head>
 
