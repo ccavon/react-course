@@ -1,0 +1,52 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-22 13:28:35
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-22 16:05:39
+ * @FilePath: /react-course/02_HelloReact/04_JSX.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX</title>
+  <script src="./script/react.development.js"></script>
+  <script src="./script/react-dom.development.js"></script>
+  <!-- 引入babel库 -->
+  <script src="./script/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- 引入babel库之后，script 标签须得用 type属性，设置js代码被babel处理 -->
+  <script type="text/babel">
+    // 创建一个React元素 <button>我是按钮</button>
+    // 命令式编程（比如：让小孩子去买酱油连路线也会一并告诉他，也就是让你干什么就干什么）
+    // const button = React.createElement('button', {}, '我是一个按钮');
+
+
+    // 在React中可以通过JSX（js扩展）来创建React元素，JSX需要被翻译成JS代码，才能被React执行（此时需要引入babel库，不然会报错）
+    // 声明式编程，结果导向的编程（比如：让小孩子去买酱油，其他都不说，只说结果，过程自己去处理）
+    // const button = <button>我是按钮</button>; // 当babel库引入设置后，网页会正确渲染，等同于 React.createElement('button', {}, '我是一个按钮');
+
+
+    /*
+      JSX就是React.createElement()的语法糖，JSX在执行之前都会被babel转换为js代码
+      
+     */
+
+    const div = <div>
+      我是一个div
+      <button>我是按钮</button>
+    </div>;
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    // root.render(button);
+    root.render(div);
+
+  </script>
+</body>
+
+</html>
