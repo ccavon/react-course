@@ -1,0 +1,153 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-22 16:12:13
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-22 22:03:42
+ * @FilePath: /react-course/02_HelloReact/05_JSX的注意事项.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX的注意事项</title>
+  <script src="./script/react.development.js"></script>
+  <script src="./script/react-dom.development.js"></script>
+  <script src="./script/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root">
+
+  </div>
+
+  <script type="text/babel">
+    /*
+      JSX的注意事项：
+        1. JSX不是字符串，不要加引号
+        2. JSX中html标签应该小写，React组件应该大写
+        3. JSX中有且仅有一个根标签
+        4. JSX的标签必须正确结束（自结束标签必须写/）
+        5. 在JSX中可以使用{}嵌入表达式
+            - 有值的语句就是表达式
+        6. 如果表达式是空值、布尔值、undefined，将不会显示
+        7. 在JSX中，属性可以直接在标签中设置
+            注意：
+              class需要使用className代替
+              style中必须使用对象设置，比如：style={{ backgroundColor: 'red' }}
+     */
+
+    // const div = "<div>我是一个div</div>";
+    // alert(div); // <div>我是一个div</div>（加了引号后，就会直接渲染出标签元素的字符串）
+
+    // const div = <Div>我是一个div</Div>;
+    // console.log(div); // Uncaught ReferenceError: Div is not defined（因为会被当成是React组件所以报错）
+
+    // const div = <div></div><div></div><div></div>; // （jsx中不允许这样写）
+    // const div = <div><div>1</div><div>2</div><div>3</div></div>; // （最外层必须有一个容器，即是根标签）
+
+    // input 自结束标签在html中可以不写 /，但是在jsx中必须写 /，否则报错
+    // const div = <div>
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text">
+    // </div>;
+    // const div = <div>
+    //   我是一个div
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text" />
+    //   <div />
+    // </div>;
+
+    const name = '孙悟空';
+    function fn() {
+      return 'hello';
+    }
+
+    // const div = <div>
+    //   我是一个div
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text" />
+    //   <div>
+    //     {name} <br />
+    //     {1 + 1} <br />
+    //     {fn()} <br />
+    //     {NaN} <br />
+    //   </div>
+    // </div>;
+
+    // const div = <div>
+    //   我是一个div
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text" />
+    //   <div>
+    //     {true} <br />
+    //     {false} <br />
+    //     {undefined} <br />
+    //   </div>
+    // </div>;
+
+    // const div = <div id='box' onClick={() => alert(123)} className='box1'>
+    //   我是一个div
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text" />
+    //   <div>
+    //     {true} <br />
+    //     {false} <br />
+    //     {undefined} <br />
+    //   </div>
+    // </div>;
+
+    // style="color: red;"这样写会报错，控制台会提醒使用对象的模式
+    // const div = <div id='box' onClick={() => alert(123)} className='box1' style="color: red;">
+    //   我是一个div
+    //   <ul>
+    //     <li>我是列表项</li>
+    //   </ul>
+    //   <input type="text" />
+    //   <div>
+    //     {true} <br />
+    //     {false} <br />
+    //     {undefined} <br />
+    //   </div>
+    // </div>;
+
+    const div = <div
+      id='box'
+      onClick={() => alert(123)}
+      className='box1'
+      style={{ color: 'red', backgroundColor: 'yellow', border: '10px solid skyblue' }}
+    >
+      我是一个div
+      <ul>
+        <li>我是列表项</li>
+      </ul>
+      <input type="text" />
+      <div>
+        {true} <br />
+        {false} <br />
+        {undefined} <br />
+      </div>
+    </div>;
+
+
+    // const div = <div>我是一个div</div>;
+    // alert(div); // [object Object]（不加引号，就是一个正儿八经的React对象）
+
+
+
+    ReactDOM.createRoot(document.getElementById('root')).render(div);
+  </script>
+</body>
+
+</html>
