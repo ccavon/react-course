@@ -1,0 +1,73 @@
+<!--
+ * @Author: cavon 425247833@qq.com
+ * @Date: 2024-01-22 22:07:09
+ * @LastEditors: cavon 425247833@qq.com
+ * @LastEditTime: 2024-01-22 22:37:34
+ * @FilePath: /react-course/02_HelloReact/06_列表渲染.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>列表渲染</title>
+  <script src="./script/react.development.js"></script>
+  <script src="./script/react-dom.development.js"></script>
+  <script src="./script/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    const name = '孙悟空';
+    // const div = <div>hello {name}</div>;
+
+    /*
+      {} 只能用来放js表达式，而不能放语句（if for），在语句中是可以去操作JSX
+
+     */
+    const lang = 'cn';
+    let div;
+    if (lang === 'en') {
+      div = div = <div>hello {name}</div>;
+    } else if (lang === 'cn') {
+      div = div = <div>你好 {name}</div>;
+    }
+
+    // ReactDOM.createRoot(document.getElementById('root')).render(div);
+
+    // 将arr渲染为一个列表在网页中显示
+    // const arr = ['孙悟空', '猪八戒', '沙和尚'];
+    // jsx会自动将数组中的元素在页面中显示
+    // const list = <div>{arr}</div>; // 孙悟空猪八戒沙和尚
+
+    /*
+      <ul>
+        <li>arr[0]</li>
+        <li>arr[1]</li>
+        <li>arr[2]</li>
+      </ul>
+
+      [<li>孙悟空</li>, <li>猪八戒</li>, <li>沙和尚</li>]
+     */
+
+    const data = ['孙悟空', '猪八戒', '沙和尚'];
+
+    // let arr = [];
+    // // 遍历data
+    // for (let i = 0; i < data.length; i++) {
+    //   arr.push(<li key={i}>{data[i]}</li>)
+    // }
+    // const list = <ul>{arr}</ul>;
+
+    const list = <ul>{data.map((item, index) => <li key={index}>{item}</li>)}</ul>;
+
+    ReactDOM.createRoot(document.getElementById('root')).render(list);
+
+  </script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-22 16:12:13
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-22 22:03:42
+ * @LastEditTime: 2024-01-22 22:11:29
  * @FilePath: /react-course/02_HelloReact/05_JSX的注意事项.html
 -->
 <!DOCTYPE html>
@@ -40,6 +40,9 @@
 
     // const div = "<div>我是一个div</div>";
     // alert(div); // <div>我是一个div</div>（加了引号后，就会直接渲染出标签元素的字符串）
+
+    // const div = <div>我是一个div</div>;
+    // alert(div); // [object Object]（不加引号，就是一个正儿八经的React对象）
 
     // const div = <Div>我是一个div</Div>;
     // console.log(div); // Uncaught ReferenceError: Div is not defined（因为会被当成是React组件所以报错）
@@ -139,12 +142,6 @@
         {undefined} <br />
       </div>
     </div>;
-
-
-    // const div = <div>我是一个div</div>;
-    // alert(div); // [object Object]（不加引号，就是一个正儿八经的React对象）
-
-
 
     ReactDOM.createRoot(document.getElementById('root')).render(div);
   </script>
