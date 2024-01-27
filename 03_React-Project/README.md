@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-26 21:04:16
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-26 23:20:34
+ * @LastEditTime: 2024-01-27 14:25:47
  * @FilePath: /react-course/03_React-Project/README.md\
 -->
 #### 手动创建React项目
@@ -27,15 +27,17 @@
 
 3. 在 03_React-Project 文件夹下面创建 src 文件夹
 
-4. 在 03_React-Project/src 文件夹下面创建 index.js 文件（可以什么都不写）
+4. 在 03_React-Project/src 文件夹下面创建 index.js 文件（此时可以什么都不写）
 
 5. 在终端进入 03_React-Project 文件夹下面，接着输入以下命令
     ```
+    npm init -y
     yarn init -y
     ```
 
 6. 在项目中安装三个依赖，分别是：react核心库、用react操作dom的react-dom库、提供react开发环境（webpack、测试等等工具）react-scripts库
     ```
+    npm install react react-dom react-scripts -S
     yarn add react react-dom react-scripts
     ```
     输入命令之后，会出现package.json等文件，package.json文件定义了本项目中所需要的各种模块，以及项目的配置信息
@@ -64,7 +66,7 @@
     ```
     输入命令之后，会出现build文件夹，这是打包以后的目录，用于把有用的代码合并成一些文件放到里边，webpack根据index.html进行生成的
 
-9. 启动一个内置的测试服务器，测试的服务器中会实时的对代码进行编译
+9. 启动一个内置的测试服务器，测试服务器会实时的对代码进行编译（初次启动需要输入y进行确认）
     ```
     npx react-scripts start
     ```
@@ -82,7 +84,14 @@
     ```
     npm run start
     npm run build
+
+    yarn start
+    yarn build
     ```
 
+11. 增加一个 .gititnore 文件，用于在git提交时过滤掉 node_modules 文件夹的内容，.gititnore 文件内容如下：
+    ```
+    node_modules
+    ```
 
 
