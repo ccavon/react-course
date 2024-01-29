@@ -1,42 +1,29 @@
 /*
  * @Author: cavon 425247833@qq.com
- * @Date: 2024-01-27 14:15:01
+ * @Date: 2024-01-29 16:44:34
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-27 22:34:45
+ * @LastEditTime: 2024-01-29 17:09:41
  * @FilePath: /react-course/04_Learn-Log/src/index.js
+ * @Description: 组件
  */
-import ReactDOM from "react-dom/client";
-import "./index.css";
 
-// 日志容器
-const App = <div className="logs">
-  {/* 日志项（列表）容器 */}
-  <div className="item">
-    {/* 日志日期容器 */}
-    <div className="date">
-      <div className="mouth">四月</div>
-      <div className="day">22</div>
-    </div>
-    {/* 日志内容容器 */}
-    <div className="content">
-      <h2 className="desc">学习React</h2>
-      <div className="time">40分钟</div>
-    </div>
-  </div>
+/*
+    组件
+      - React中组件有两种创建方式
+      - 函数式组件
+        - 函数式组件就是一个返回JSX的普通函数
+        - 组件的首字母必须是大写
+      - 类组件
+ */
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-  {/* 日志项（列表）容器 */}
-  <div className="item">
-    {/* 日志日期容器 */}
-    <div className="date">
-      <div className="mouth">四月</div>
-      <div className="day">18</div>
-    </div>
-    {/* 日志内容容器 */}
-    <div className="content">
-      <h2 className="desc">学习React</h2>
-      <div className="time">40分钟</div>
-    </div>
-  </div>
-</div>;
+// 函数组件
+// function App() {
+//   return <div>Hello React！</div>;
+// }
 
-ReactDOM.createRoot(document.getElementById('root')).render(App);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// React组件可以直接通过JSX渲染
+root.render(<App />);
