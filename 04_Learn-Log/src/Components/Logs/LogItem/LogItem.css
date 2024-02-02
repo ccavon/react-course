@@ -1,0 +1,9 @@
+/* 设置item的样式 */
+.item {
+  display: flex;
+  margin: 15px 0;
+  padding: 6px;
+  background-color: #f3c15f;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
