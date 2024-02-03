@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-27 14:15:01
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-01-27 22:34:45
+ * @LastEditTime: 2024-02-03 14:49:27
  * @FilePath: /react-course/04_Learn-Log/src/index.js
  */
 import ReactDOM from "react-dom/client";
@@ -14,7 +14,7 @@ const App = <div className="logs">
   <div className="item">
     {/* 日志日期容器 */}
     <div className="date">
-      <div className="mouth">四月</div>
+      <div className="month">四月</div>
       <div className="day">22</div>
     </div>
     {/* 日志内容容器 */}
@@ -28,7 +28,7 @@ const App = <div className="logs">
   <div className="item">
     {/* 日志日期容器 */}
     <div className="date">
-      <div className="mouth">四月</div>
+      <div className="month">四月</div>
       <div className="day">18</div>
     </div>
     {/* 日志内容容器 */}

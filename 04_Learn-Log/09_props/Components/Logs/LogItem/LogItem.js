@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-01 21:45:39
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-03 14:56:44
+ * @LastEditTime: 2024-02-02 21:19:00
  * @FilePath: /react-course/04_Learn-Log/src/Components/Logs/LogItem.js
  * @Description: 日志的项（列表）容器
  */
@@ -16,7 +16,7 @@ const LogItem = (props) => {
      可以在函数组件的形参中定义一个props，props指向的是一个对象
      它包含了父组件中传递的所有参数
    */
-  // console.log(props);
+  console.log(props);
   return (
     // {/* 日志项（列表）容器 */}
     <div className="item">
@@ -25,7 +25,7 @@ const LogItem = (props) => {
         如果将组件中的数据全部写死，将会导致组件无法动态设置，不具有使用价值，我们希望组件数据可以由外部设置
           在组件间，父组件可以通过props（属性）向子组件传递数据
       */}
-      <MyDate date={props.date} />
+      <MyDate />
       {/* 日志内容容器 */}
       <div className="content">
         <h2 className="desc">{props.desc}</h2>
