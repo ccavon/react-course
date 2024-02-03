@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-01 21:45:39
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-03 15:58:28
+ * @LastEditTime: 2024-02-03 14:56:44
  * @FilePath: /react-course/04_Learn-Log/src/Components/Logs/LogItem.js
  * @Description: 日志的项（列表）容器
  */
@@ -16,11 +16,6 @@ const LogItem = (props) => {
      可以在函数组件的形参中定义一个props，props指向的是一个对象
      它包含了父组件中传递的所有参数
    */
-
-  /*
-    props是只读的不能修改
-   */
-  // props.desc = '嘻嘻嘻'; // 不能修改props中的属性
   // console.log(props);
   return (
     // {/* 日志项（列表）容器 */}
