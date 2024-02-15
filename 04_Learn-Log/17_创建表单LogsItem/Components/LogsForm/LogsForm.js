@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 19:47:48
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-12 21:28:46
+ * @LastEditTime: 2024-02-15 23:01:48
  * @FilePath: /react-course/04_Learn-Log/src/Components/LogsForm/LogsForm.js
  * @Description: 表单添加组件
  */
@@ -23,7 +23,7 @@ const LogsForm = () => {
 
         <div className="form-item">
           <label htmlFor="content">内容</label>
-          <input type="text" id="content" />
+          <input type="text" id="desc" />
         </div>
 
         <div className="form-item">
