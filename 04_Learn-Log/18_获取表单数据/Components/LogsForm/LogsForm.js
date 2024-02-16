@@ -2,12 +2,12 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 19:47:48
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-16 15:50:54
+ * @LastEditTime: 2024-02-15 23:34:58
  * @FilePath: /react-course/04_Learn-Log/src/Components/LogsForm/LogsForm.js
  * @Description: 表单添加组件
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Card from '../UI/Card/Card';
 import './LogsForm.css';
 
@@ -24,19 +24,14 @@ const LogsForm = () => {
   const descRef = useRef();
 
   // 创建三个变量，用来存储表单中的数据
-  // let inputDate = '';
-  // let inputDesc = '';
-  // let inputTime = 0;
-
-  const [inputDate, setInputDate] = useState('');
-  const [inputDesc, setInputDesc] = useState('');
-  const [inputTime, setInputTime] = useState('');
+  let inputDate = '';
+  let inputDesc = '';
+  let inputTime = 0;
 
   // 创建一个响应函数，监听表单项日期的变化
   const dateChangeHandler = (e) => {
     console.log(e.target.value);
-    // inputDate = e.target.value;
-    setInputDate(e.target.value);
+    inputDate = e.target.value;
   }
 
   // 创建一个响应函数，监听表单项内容的变化
@@ -48,15 +43,13 @@ const LogsForm = () => {
     // console.log(descRef.current.value);
 
     console.log(e.target.value);
-    // inputDesc = e.target.value;
-    setInputDesc(e.target.value);
+    inputDesc = e.target.value;
   }
 
   // 创建一个响应函数，监听表单项时长的变化
   const timeChangeHandler = (e) => {
     console.log(e.target.value);
-    // inputTime = e.target.value;
-    setInputTime(e.target.value);
+    inputTime = e.target.value;
   }
 
   // 当表单提交时，汇总表单中的数据
@@ -73,20 +66,7 @@ const LogsForm = () => {
       time: +inputTime // 隐式转换为number
     };
     console.log(newLog);
-
-    // 清空表单项
-    setInputDate('');
-    setInputDesc('');
-    setInputTime('');
   }
-
-  /**
-      提交表单后如何清空表单的旧数据，现在这种表单，在React我们称为非受控组件
-
-      我们可以将表单中的数据存储到state中，然后将state设置为表单项value值，这样当表单项发生变化，state会随之变化，
-      反之，state发生变化，表单项也会跟着改变，这种操作我们就称为双向绑定
-      这样一来，表单就成为了一个受控组件
-   */
 
   return (
     <Card className="logs-from">
@@ -94,17 +74,17 @@ const LogsForm = () => {
 
         <div className="form-item">
           <label htmlFor="date">日期</label>
-          <input type="date" id="date" onChange={dateChangeHandler} value={inputDate} />
+          <input type="date" id="date" onChange={dateChangeHandler} />
         </div>
 
         <div className="form-item">
           <label htmlFor="content">内容</label>
-          <input type="text" id="desc" onChange={descChangeHandler} ref={descRef} value={inputDesc} />
+          <input type="text" id="desc" onChange={descChangeHandler} ref={descRef} />
         </div>
 
         <div className="form-item">
           <label htmlFor="time">时长</label>
-          <input type="number" id="time" onChange={timeChangeHandler} value={inputTime} />
+          <input type="number" id="time" onChange={timeChangeHandler} />
         </div>
 
         <div className="form-btn">
