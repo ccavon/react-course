@@ -1,0 +1,11 @@
+/* 设置外层容器logs的样式 */
+.logs {
+  padding: 15px 20px;
+  background-color: #e9e2bc;
+}
+
+.no-logs {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
