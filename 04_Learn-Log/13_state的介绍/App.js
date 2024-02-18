@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-29 18:30:11
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-03 17:17:24
+ * @LastEditTime: 2024-02-18 22:18:16
  * @FilePath: /react-course/04_Learn-Log/src/App.js
  * @Description: 主页入口
  */
@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
 
-  console.log('函数执行了 ---› 组件创建完毕！');
+  // console.log('函数执行了 ---› 组件创建完毕！');
 
   /**
     在React中，当组件渲染完毕后，再修改组件中的变量，不会使组件重新渲染
@@ -62,7 +62,6 @@ const App = () => {
     // 点击数字都+1
     // alert('+1');
     // counter++;
-    // console.log(counter);
     // setCounter(2); // 将counter值修改为2
     setCounter(counter + 1);
   }
@@ -71,11 +70,10 @@ const App = () => {
     // 点击数字都-1
     // alert('-1');
     // counter--;
-    // console.log(counter);
     setCounter(counter - 1);
   }
 
-  console.log(counter);
+  // console.log(counter);
   return <div className='app'>
     <h1>{counter}</h1>
     <button onClick={lessHandler}>-</button>

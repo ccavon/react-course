@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 19:47:48
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-16 17:17:34
+ * @LastEditTime: 2024-02-18 22:22:07
  * @FilePath: /react-course/04_Learn-Log/src/Components/LogsForm/LogsForm.js
  * @Description: 表单添加组件
  */
@@ -20,19 +20,16 @@ const LogsForm = (props) => {
 
   // 创建一个响应函数，监听表单项日期的变化
   const dateChangeHandler = (e) => {
-    console.log(e.target.value);
     setInputDate(e.target.value);
   }
 
   // 创建一个响应函数，监听表单项内容的变化
   const descChangeHandler = (e) => {
-    console.log(e.target.value);
     setInputDesc(e.target.value);
   }
 
   // 创建一个响应函数，监听表单项时长的变化
   const timeChangeHandler = (e) => {
-    console.log(e.target.value);
     setInputTime(e.target.value);
   }
 
@@ -45,15 +42,12 @@ const LogsForm = (props) => {
       desc: inputDesc,
       time: +inputTime // 隐式转换为number
     };
-    console.log(newLog);
     // 当要添加新的日志时，调用父组件传递过来的函数
     props.onSaveLog(newLog);
-
     // 清空表单项
     setInputDate('');
     setInputDesc('');
     setInputTime('');
-
   }
 
   return (

@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 17:42:26
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-17 17:47:24
+ * @LastEditTime: 2024-02-18 22:23:42
  * @FilePath: /react-course/04_Learn-Log/src/App.js
  * @Description: 主页入口
  */
@@ -58,7 +58,6 @@ const App = () => {
   const saveLogHandler = (newLog) => {
     // 向新的日志中添加id
     newLog.id = Date.now() + '';
-    console.log(newLog);
     // 将新的数据添加到数组中
     // logsData.push(newLog);
     // setLogsData([...logsData, newLog]); // 新数据在后面
@@ -67,7 +66,6 @@ const App = () => {
 
   // 定义一个函数，从数据中删除一条日志
   const delLogByIndex = (index) => {
-    console.log(index);
     setLogsData(prevState => {
       const newData = [...prevState];
       newData.splice(index, 1);

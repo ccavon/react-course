@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 17:43:06
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-16 21:20:17
+ * @LastEditTime: 2024-02-18 22:21:57
  * @FilePath: /react-course/04_Learn-Log/src/Components/Logs/LogItem.js
  * @Description: 日志的项（列表）容器
  */
@@ -15,7 +15,6 @@ const LogItem = (props) => {
 
   // 删除item的响应数据
   const deleteItemHandler = () => {
-    console.log('删除success');
     // 临时性
     const isDel = window.confirm('该操作不可恢复，确认码？');
     if (isDel) {

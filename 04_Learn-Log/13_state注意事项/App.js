@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-29 18:30:11
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-04 16:42:00
+ * @LastEditTime: 2024-02-18 22:17:43
  * @FilePath: /react-course/04_Learn-Log/src/App.js
  * @Description: 主页入口
  */
@@ -23,7 +23,7 @@ const App = () => {
           为了避免这种情况，可以通过为setState()传递回调函数的形式修改state值
    */
 
-  console.log('函数执行了 ---› 组件创建完毕！');
+  // console.log('函数执行了 ---› 组件创建完毕！');
 
   const [counter, setCounter] = useState(1);
   const [user, setUser] = useState({ name: '孙悟空', age: 18 });
@@ -71,7 +71,7 @@ const App = () => {
     setUser({ ...user, name: '猪八戒' }); // 使用展开运算符进行浅复制
   }
 
-  console.log(counter);
+  // console.log(counter);
   return <div className='app'>
     <h1>{counter} -- {user.name} -- {user.age}</h1>
     <button onClick={addHandler}>按钮1</button>

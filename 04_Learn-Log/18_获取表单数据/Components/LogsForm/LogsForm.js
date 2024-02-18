@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 19:47:48
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-15 23:34:58
+ * @LastEditTime: 2024-02-18 22:21:09
  * @FilePath: /react-course/04_Learn-Log/src/Components/LogsForm/LogsForm.js
  * @Description: 表单添加组件
  */
@@ -30,33 +30,25 @@ const LogsForm = () => {
 
   // 创建一个响应函数，监听表单项日期的变化
   const dateChangeHandler = (e) => {
-    console.log(e.target.value);
     inputDate = e.target.value;
   }
 
   // 创建一个响应函数，监听表单项内容的变化
   const descChangeHandler = (e) => {
-    console.log('desc发生变化了');
     // const desc = document.getElementById('desc');
     // console.log(desc.value);
-
     // console.log(descRef.current.value);
-
-    console.log(e.target.value);
     inputDesc = e.target.value;
   }
 
   // 创建一个响应函数，监听表单项时长的变化
   const timeChangeHandler = (e) => {
-    console.log(e.target.value);
     inputTime = e.target.value;
   }
 
   // 当表单提交时，汇总表单中的数据
   const formSubmitHandler = (e) => {
     e.preventDefault(); // 取消表单的默认行为
-    console.log('表单提交了');
-
     // 获取表单项中的数据日期、内容、时长
     // console.log(inputDate, inputDesc, inputTime);
     // 将数据拼装为一个对象

@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-11 17:48:13
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-12 16:19:28
+ * @LastEditTime: 2024-02-18 22:18:37
  * @FilePath: /react-course/04_Learn-Log/src/components/User.js
  * @Description: 类组件
  */
@@ -42,7 +42,6 @@ class User extends Component {
   clickHandler = () => {
     this.setState({ count: this.state.count + 1 });
     // this.setState(prevState => {
-    //   console.log(11, prevState);
     //   return {
     //     count: prevState.count + 1
     //   }
@@ -51,13 +50,13 @@ class User extends Component {
     // this.setState({ obj: { name: '沙和尚' } }); // 此时的浏览器渲染的age会丢失
     this.setState({ obj: { ...this.state.obj, name: '沙和尚' } }); // 用展开符进行覆盖，浏览器渲染的age就不会丢失了
 
-    console.log(this.divRef);
+    // console.log(this.divRef);
   }
 
   render() {
 
     // console.log(this.props);
-    console.log(this.divRef.current); // 获取最外层div
+    // console.log(this.divRef.current); // 获取最外层div
 
     return (
       <div ref={this.divRef}>

@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 17:43:06
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-17 21:28:46
+ * @LastEditTime: 2024-02-18 20:27:57
  * @FilePath: /react-course/04_Learn-Log/src/Components/Logs/LogItem.js
  * @Description: 日志的项（列表）容器
  */
@@ -40,6 +40,7 @@ const LogItem = (props) => {
   // 确认函数
   const okHandler = () => {
     props.onDelLog();
+    setShowConfirm(false);
   }
 
   /**

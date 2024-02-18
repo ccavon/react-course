@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-02-12 17:42:50
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-16 21:32:18
+ * @LastEditTime: 2024-02-18 22:24:56
  * @FilePath: /react-course/04_Learn-Log/src/Logs.js
  * @Description: 日志的容器
  */
@@ -73,7 +73,6 @@ const Logs = (props) => {
     logsItemData = <p className="no-logs">没有找到日志</p>;
   }
 
-  console.log("logsItemData", logsItemData);
   return (
     <Card className="logs">
       {/* 在父组件中可以直接在子组件中设置属性 */}

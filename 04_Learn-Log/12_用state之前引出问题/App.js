@@ -2,7 +2,7 @@
  * @Author: cavon 425247833@qq.com
  * @Date: 2024-01-29 18:30:11
  * @LastEditors: cavon 425247833@qq.com
- * @LastEditTime: 2024-02-03 16:24:30
+ * @LastEditTime: 2024-02-18 22:17:27
  * @FilePath: /react-course/04_Learn-Log/src/App.js
  * @Description: 主页入口
  */
@@ -22,17 +22,14 @@ const App = () => {
     // 点击数字都+1
     // alert('+1');
     counter++;
-    console.log(counter);
   }
 
   const lessHandler = () => {
     // 点击数字都-1
     // alert('-1');
     counter--;
-    console.log(counter);
   }
 
-  console.log(counter);
   return <div className='app'>
     <h1>{counter}</h1>
     <button onClick={lessHandler}>-</button>
